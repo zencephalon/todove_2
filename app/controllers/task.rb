@@ -33,7 +33,12 @@ delete '/tasks/:id' do |id|
 end
 
 put '/tasks/:id' do |id|
+  task = Task.find(id)
+  task.update(params[:task])
+  redirect project_url(task.project)
 end
 
 get '/tasks/:id/edit' do |id|
+  @task = Task.find(id)
+  erb :'task/edit'
 end
