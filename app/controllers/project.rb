@@ -23,7 +23,8 @@ get '/projects/new' do
 end
 
 post '/projects' do
-
+  project = Project.create(description: params[:description])
+  redirect "/projects/#{project.id}"
 end
 
 # Delete and Read
