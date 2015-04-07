@@ -8,7 +8,8 @@ end
 
 # Two ways to create new tasks
 post '/tasks' do
-
+  task = Task.create(params[:task])
+  redirect project_url(task.project)
 end
 
 get '/tasks/new' do
@@ -25,6 +26,7 @@ end
 
 
 delete '/tasks/:id' do |id|
+  
 end
 
 put '/tasks/:id' do |id|
