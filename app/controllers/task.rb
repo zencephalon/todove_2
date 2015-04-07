@@ -27,7 +27,9 @@ end
 
 
 delete '/tasks/:id' do |id|
-  
+  task = Task.find(id)
+  task.destroy
+  redirect project_url(task.project)
 end
 
 put '/tasks/:id' do |id|
