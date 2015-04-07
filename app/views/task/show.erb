@@ -1,4 +1,4 @@
-Description: <%= task.description %>, Status: <%= task.status %>, <form action="<%= task_url task %>" method="POST">
+Description: <%= task.description %>, Status: <%= task.status %>, <a href="<%= task_url(task) + '/edit' %>">Edit</a>, <form action="<%= task_url task %>" method="POST">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Delete">
     </form>
