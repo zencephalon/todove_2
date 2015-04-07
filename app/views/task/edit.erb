@@ -8,5 +8,11 @@
   <label>Status</label>
   <br>
   <input type="text" name="task[status]" value="<%= @task.status %>"><br>
+
+  <select name="task[project_id]">
+    <% @projects.each do |project| %>
+      <option value="<%= project.id %>" <%= project == @task.project ? "selected" : "" %>><%= project.description %></option>
+    <% end %>
+  </select>
   <input type="submit">
 </form>

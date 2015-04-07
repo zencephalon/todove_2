@@ -40,5 +40,6 @@ end
 
 get '/tasks/:id/edit' do |id|
   @task = Task.find(id)
+  @projects = Project.all
   erb :'task/edit'
 end
