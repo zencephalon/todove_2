@@ -1,7 +1,9 @@
 # Index
 
 get '/projects' do
+  @projects = Project.all
 
+  erb :'project/index'
 end
 
 # Update routes
