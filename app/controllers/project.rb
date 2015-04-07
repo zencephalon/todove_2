@@ -19,7 +19,7 @@ end
 # Create routes
 
 get '/projects/new' do
-
+  erb :'project/new'
 end
 
 post '/projects' do
