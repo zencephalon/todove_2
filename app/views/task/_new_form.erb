@@ -1,0 +1,8 @@
+<form action="/tasks" method="POST">
+  <label>Description:</label><br>
+  <input type="text" name="description"><br>
+  <label>Status:</label><br>
+  <input type="text" name="status">
+  <input type="hidden" name="project_id" value="<%= @project.id %>"><br>
+  <input type="submit">
+</form>
