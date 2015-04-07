@@ -9,11 +9,14 @@ end
 # Update routes
 
 put '/projects/:id' do |id|
-
+  project = Project.find(id)
+  project.update(description: params[:description])
+  redirect "/projects/#{project.id}"
 end
 
 get '/projects/:id/edit' do |id|
-
+  @project = Project.find(id)
+  erb :'project/edit'
 end
 
 # Create routes

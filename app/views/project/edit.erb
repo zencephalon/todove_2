@@ -1,0 +1,9 @@
+<h1>Edit Project</h1>
+
+<form method="POST" action="/projects/<%= @project.id %>">
+  <input type="hidden" name="_method" value="PUT">
+  <label>Description</label>
+  <br>
+  <input type="text" name="description" value="<%= @project.description %>"><br>
+  <input type="submit">
+</form>
