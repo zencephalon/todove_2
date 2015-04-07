@@ -1,11 +1,7 @@
 <ol>
 <% @projects.each do |project| %>
   <li>
-    <a href="<%= project_url project %>"><%= project.description %></a>, <a href="<%= project_url(project) + '/edit' %>">Edit</a>,
-    <form action="<%= project_url project %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete">
-    </form>
+    <%= erb :'project/_listing', locals: {project: project} %>
   </li>
 <% end %>
 </ol>

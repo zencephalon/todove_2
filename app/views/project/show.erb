@@ -3,7 +3,7 @@
 <h2>Tasks:</h2>
 <ol>
 <% @project.tasks.each do |task| %>
-  <li>Description: <%= task.description %>, Status: <%= task.status %></li>
+  <li><%= erb :'task/show', locals: {task: task} %></li>
 <% end %>
 </ol>
 
