@@ -33,5 +33,7 @@ delete '/projects/:id' do |id|
 end
 
 get '/projects/:id' do |id|
+  @project = Project.find(id)
 
+  erb :'project/show'
 end
