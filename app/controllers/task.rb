@@ -3,7 +3,8 @@ get '/tasks' do
 end
 
 get '/tasks/:id' do |id|
-
+  task = Task.find(id)
+  erb :'task/show', locals: {task: task}
 end
 
 # Two ways to create new tasks
