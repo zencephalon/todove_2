@@ -1,0 +1,4 @@
+Description: <%= task.description %>, Status: <%= task.status %>, <form action="<%= task_url task %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete">
+    </form>
