@@ -1,0 +1,8 @@
+<h1><%= @project.description %></h1>
+
+<h2>Tasks:</h2>
+<ol>
+<% @project.tasks.each do |task| %>
+  <li>Description: <%= task.description %>, Status: <%= task.status %></li>
+<% end %>
+</ol>
