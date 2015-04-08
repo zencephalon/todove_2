@@ -1,5 +1,9 @@
 # Index
 
+get '/' do
+  redirect '/projects'
+end
+
 get '/projects' do
   @projects = Project.all
 
