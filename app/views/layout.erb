@@ -18,6 +18,11 @@
   <title></title>
 </head>
 <body>
+  <header>
+    <% if current_user %>
+      <p>Welcome, <%= current_user.username %></p>
+    <% end %>
+  </header>
   <%= yield %>
 </body>
 </html>
