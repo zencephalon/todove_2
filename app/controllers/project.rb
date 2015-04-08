@@ -19,6 +19,8 @@ put '/projects/:id' do |id|
 end
 
 get '/projects/:id/edit' do |id|
+  redirect '/signin' unless current_user
+
   @project = Project.find(id)
   erb :'project/edit'
 end
