@@ -20,7 +20,7 @@
 <body>
   <header>
     <% if current_user %>
-      <p>Welcome, <%= current_user.username %></p>
+      <p>Welcome, <%= current_user.name %></p>
     <% end %>
   </header>
   <%= yield %>
