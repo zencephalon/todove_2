@@ -5,7 +5,9 @@ get '/' do
 end
 
 get '/projects' do
-  @projects = Project.all
+  bounce_guest!
+
+  @projects = current_user.projects
 
   erb :'project/index'
 end
@@ -13,15 +15,21 @@ end
 # Update routes
 
 put '/projects/:id' do |id|
+  bounce_guest!
+
   project = Project.find(id)
+  check_permission!(project)
+
   project.update(description: params[:description])
   redirect project_url(project) 
 end
 
 get '/projects/:id/edit' do |id|
-  redirect '/signin' unless current_user
+  bounce_guest!
 
   @project = Project.find(id)
+  check_permission!(@project)
+
   erb :'project/edit'
 end
 
@@ -39,12 +47,22 @@ end
 # Delete and Read
 
 delete '/projects/:id' do |id|
-  Project.find(id).destroy
+  bounce_guest!
+
+  project = Project.find(id)
+  check_permission!(project)
+
+  project.destroy
+
   redirect "/projects"
 end
 
 get '/projects/:id' do |id|
+  bounce_guest!
+
   @project = Project.find(id)
+
+  check_permission!(@project)
 
   erb :'project/show'
 end
