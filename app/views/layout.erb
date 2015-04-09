@@ -20,9 +20,14 @@
 <body>
   <header>
     <% if current_user %>
-      <p>Welcome, <%= current_user.name %></p>
+      <p>Welcome, <%= current_user.name %>. <a href="/signout">Signout!</a></p>
+    <% else %>
+      <p><a href="/signup">Signup!</a> | <a href="/signin">Signin!</a></p>
     <% end %>
   </header>
+  <div id="error_display">
+    <%= get_error %>
+  </div>
   <%= yield %>
 </body>
 </html>
