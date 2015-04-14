@@ -1,4 +1,8 @@
-Description: <%= task.description %>, Status: <%= task.status %>, <a href="<%= task_url(task) + '/edit' %>">Edit</a>, <form action="<%= task_url task %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete">
-    </form>
+<div class="task">
+  Description: <%= task.description %>, Status: <%= task.status %>, <a href="<%= task_url(task) + '/edit' %>">Edit</a>
+  <ul>
+    <% task.children.each do |child| %>
+      <li><%= erb :'task/show', locals: {task: child} %></li>
+    <% end %>
+  </ul>
+</div>
