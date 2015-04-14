@@ -1,3 +1,7 @@
+get '/' do
+  redirect '/tasks'
+end
+
 get '/tasks' do
 
 end
