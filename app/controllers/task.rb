@@ -3,7 +3,11 @@ get '/' do
 end
 
 get '/tasks' do
+  bounce_guest!
 
+  @tasks = current_user.top_level_tasks
+
+  erb :'task/index'
 end
 
 get '/tasks/:id' do |id|
