@@ -10,6 +10,10 @@ get '/tasks' do
   erb :'task/index'
 end
 
+get '/tasks/new' do
+  erb :'task/_new_form'
+end
+
 get '/tasks/:id' do |id|
   task = Task.find(id)
   erb :'task/show', locals: {task: task}
@@ -17,37 +21,25 @@ end
 
 # Two ways to create new tasks
 post '/tasks' do
+  params[:task][:user_id] = current_user.id
   task = Task.create(params[:task])
-  redirect project_url(task.project)
-end
-
-get '/tasks/new' do
-
-end
-
-post '/projects/:id/tasks' do |id|
-
-end
-
-get '/projects/:id/tasks/new' do |id|
-
+  redirect '/'
 end
 
 
 delete '/tasks/:id' do |id|
   task = Task.find(id)
   task.destroy
-  redirect project_url(task.project)
+  redirect '/'
 end
 
 put '/tasks/:id' do |id|
   task = Task.find(id)
   task.update(params[:task])
-  redirect project_url(task.project)
+  redirect '/'
 end
 
 get '/tasks/:id/edit' do |id|
   @task = Task.find(id)
-  @projects = Project.all
   erb :'task/edit'
 end
