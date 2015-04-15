@@ -6,9 +6,9 @@ user = User.create(name: "admin", password: "iluvu")
 3.times do
   task = user.tasks.create(description: TubularFaker.name)
   3.times do
-    task = task.create_subtask(description: TubularFaker.name)
+    task2 = task.create_subtask(description: TubularFaker.name)
     3.times do
-      task.create_subtask(description: TubularFaker.name)
+      task2.create_subtask(description: TubularFaker.name)
     end
   end
 end
