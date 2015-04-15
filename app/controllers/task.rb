@@ -19,13 +19,15 @@ get '/tasks/:id' do |id|
   erb :'task/show', locals: {task: task}
 end
 
-# Two ways to create new tasks
 post '/tasks' do
   params[:task][:user_id] = current_user.id
   task = Task.create(params[:task])
-  redirect '/'
+  if request.xhr?
+    erb :'task/show', locals: {task: task}, layout: false
+  else
+    redirect '/'
+  end
 end
-
 
 delete '/tasks/:id' do |id|
   task = Task.find(id)
