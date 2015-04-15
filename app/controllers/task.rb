@@ -30,7 +30,11 @@ end
 delete '/tasks/:id' do |id|
   task = Task.find(id)
   task.destroy
-  redirect '/'
+  if request.xhr?
+    "done"
+  else
+    redirect '/'
+  end
 end
 
 put '/tasks/:id' do |id|
