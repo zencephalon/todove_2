@@ -1,8 +1,6 @@
 <form action="/tasks" method="POST">
   <label>Description:</label><br>
   <input type="text" name="task[description]"><br>
-  <label>Status:</label><br>
-  <input type="text" name="task[status]">
-  <input type="hidden" name="task[project_id]" value="<%= @project.id %>"><br>
+  <input type="hidden" name="task[parent_id]" value="<%= parent_id ||= "" %>"><br>
   <input type="submit">
 </form>
