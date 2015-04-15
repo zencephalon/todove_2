@@ -1,3 +1,7 @@
 .delete_form {
   display: inline-block;
 }
+
+.subtask_add {
+  display: none;
+}

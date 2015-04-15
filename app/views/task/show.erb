@@ -3,14 +3,14 @@
     Description: <%= task.description %>, Status: <%= task.status %>, <a href="<%= task_url(task) + '/edit' %>">Edit</a>, <form action="<%= task_url task %>" method="POST" class="delete_form">
          <input type="hidden" name="_method" value="DELETE">
          <input type="submit" value="Delete">
-       </form>
+       </form>, <a class="subtask_add_link" href="#">Add subtask</a>
+  </div>
+  <div class="subtask_add">
+    <%= erb :'task/_new_form', locals: {parent_id: task.id} %>
   </div>
   <ul class="subtask_list">
     <% task.children.each do |child| %>
       <li><%= erb :'task/show', locals: {task: child} %></li>
     <% end %>
   </ul>
-  <div class="subtask_add">
-    <%= erb :'task/_new_form', locals: {parent_id: task.id} %>
-  </div>
 </div>
